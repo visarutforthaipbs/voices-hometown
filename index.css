@@ -3,25 +3,33 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'DBHelvethaicaX';
-  src: url('/fonts/dbhelvethaicax-webfont.woff2') format('woff2');
+  font-family: "DBHelvethaicaX";
+  src: url("/fonts/dbhelvethaicax-webfont.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'DBHelvethaicaX';
-  src: url('/fonts/dbhelvethaicaxmed-webfont.woff2') format('woff2');
+  font-family: "DBHelvethaicaX";
+  src: url("/fonts/dbhelvethaicaxmed-webfont.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'DBHelvethaicaX';
-  src: url('/fonts/dbhelvethaicaxbd-webfont.woff2') format('woff2');
+  font-family: "DBHelvethaicaX";
+  src: url("/fonts/dbhelvethaicaxbd-webfont.woff2") format("woff2");
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TorsilpNantarat";
+  src: url("/fonts/TorsilpNantarat%202.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -29,5 +37,13 @@
 @layer base {
   body {
     @apply bg-softCream font-sans text-deepIndigo;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "TorsilpNantarat", "DBHelvethaicaX", sans-serif;
   }
 }

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import { Flag, ChevronRight } from 'lucide-react';
-import StageEntry from './components/StageEntry';
-import StageSelection from './components/StageSelection';
-import StageConfirmation from './components/StageConfirmation';
-import StageDashboard from './components/StageDashboard';
-import InternalDashboard from './components/InternalDashboard';
-import { LocationData, Policy } from './types';
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import StageEntry from "./components/StageEntry";
+import StageSelection from "./components/StageSelection";
+import StageConfirmation from "./components/StageConfirmation";
+import StageDashboard from "./components/StageDashboard";
+import InternalDashboard from "./components/InternalDashboard";
+import { LocationData, Policy } from "./types";
 
 // Defining stages as constants for readability
 const STAGE_ENTRY = 1;
@@ -18,7 +17,7 @@ const SurveyApp: React.FC = () => {
   const [currentStage, setCurrentStage] = useState<number>(STAGE_ENTRY);
   const [location, setLocation] = useState<LocationData | null>(null);
   const [selectedPolicies, setSelectedPolicies] = useState<Policy[]>([]);
-  const [additionalComment, setAdditionalComment] = useState<string>('');
+  const [additionalComment, setAdditionalComment] = useState<string>("");
 
   // Handlers to transition between stages
   const handleEntryComplete = (loc: LocationData) => {
@@ -45,28 +44,36 @@ const SurveyApp: React.FC = () => {
 
   const getStepTitle = () => {
     switch (currentStage) {
-      case STAGE_ENTRY: return "ระบุพื้นที่";
-      case STAGE_SELECTION: return "เลือกนโยบาย";
-      case STAGE_CONFIRMATION: return "ยืนยัน";
-      case STAGE_DASHBOARD: return "ผลโหวต";
-      default: return "";
+      case STAGE_ENTRY:
+        return "ระบุพื้นที่";
+      case STAGE_SELECTION:
+        return "เลือกนโยบาย";
+      case STAGE_CONFIRMATION:
+        return "ยืนยัน";
+      case STAGE_DASHBOARD:
+        return "ผลโหวต";
+      default:
+        return "";
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-softCream font-sans text-deepIndigo flex flex-col">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="bg-terracotta p-1.5 rounded-lg text-white">
-              <Flag size={18} className="md:w-5 md:h-5" />
-            </div>
-            <h1 className="font-bold text-lg md:text-xl tracking-tight whitespace-nowrap">เสียงในหัว <span className="text-terracotta">คนบ้านฉัน</span></h1>
+          <div className="flex items-center space-x-3">
+            <img
+              src="/logos/logo.svg"
+              alt="เสียงในหัว คนบ้านฉัน"
+              className="h-10 md:h-12 w-auto"
+            />
           </div>
 
           <div className="flex items-center text-xs md:text-sm font-medium text-slate-400">
-            <span className="hidden sm:inline mr-1">ขั้นตอนที่ {currentStage}/4 :</span>
+            <span className="hidden sm:inline mr-1">
+              ขั้นตอนที่ {currentStage}/4 :
+            </span>
             <span className="sm:hidden mr-1">{currentStage}/4 :</span>
             <span className="text-deepIndigo font-bold">{getStepTitle()}</span>
           </div>
@@ -111,14 +118,29 @@ const SurveyApp: React.FC = () => {
       {/* Footer */}
       <footer className="bg-deepIndigo text-slate-400 py-8 text-center text-sm">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-6 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-            <img src="/logos/thaipbs.png" alt="Thai PBS" className="h-6 md:h-10 w-auto object-contain" />
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-6 transition-all duration-300">
+            <img
+              src="/logos/partners-1.svg"
+              alt="Partner 1"
+              className="h-5 md:h-9 w-auto object-contain"
+            />
             <div className="h-4 md:h-6 w-px bg-slate-600"></div>
-            <img src="/logos/pi-text-logo.svg" alt="The Active" className="h-5 md:h-8 w-auto object-contain" />
+            <img
+              src="/logos/partners-2.svg"
+              alt="Partner 2"
+              className="h-6 md:h-10 w-auto object-contain"
+            />
             <div className="h-4 md:h-6 w-px bg-slate-600"></div>
-            <img src="/logos/locals.png" alt="Locals" className="h-6 md:h-10 w-auto object-contain" />
+            <img
+              src="/logos/partners-3.svg"
+              alt="Partner 3"
+              className="h-6 md:h-10 w-auto object-contain"
+            />
           </div>
-          <p className="mb-2">กิจกรรมในช่วงการเลือกตั้งเพื่อรวบรวมความต้องการของประชาชน โดยสำนักเครือข่ายและการมีส่วนร่วม สาธารณะไทยพีบีเอส (Thai PBS)</p>
+          <p className="mb-2">
+            กิจกรรมในช่วงการเลือกตั้งเพื่อรวบรวมความต้องการของประชาชน
+            โดยสำนักเครือข่ายและการมีส่วนร่วม สาธารณะไทยพีบีเอส (Thai PBS)
+          </p>
           <p>&copy; {new Date().getFullYear()} เสียงในหัว คนบ้านฉัน</p>
         </div>
       </footer>
@@ -135,6 +157,6 @@ const App: React.FC = () => {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { MapPin, Search, AlertCircle, CheckCircle2, ChevronRight } from 'lucide-react';
-import { lookupPostcode } from '../data/postcodes';
-import { LocationData } from '../types';
+import React, { useState, useEffect } from "react";
+import { Search, AlertCircle, CheckCircle2, ChevronRight } from "lucide-react";
+import { lookupPostcode } from "../data/postcodes";
+import { LocationData } from "../types";
 
 interface StageEntryProps {
   onComplete: (location: LocationData) => void;
 }
 
 const StageEntry: React.FC<StageEntryProps> = ({ onComplete }) => {
-  const [zip, setZip] = useState('');
-  const [error, setError] = useState('');
-  const [possibleLocations, setPossibleLocations] = useState<LocationData[]>([]);
-  const [selectedLocation, setSelectedLocation] = useState<LocationData | null>(null);
+  const [zip, setZip] = useState("");
+  const [error, setError] = useState("");
+  const [possibleLocations, setPossibleLocations] = useState<LocationData[]>(
+    []
+  );
+  const [selectedLocation, setSelectedLocation] = useState<LocationData | null>(
+    null
+  );
 
   useEffect(() => {
     if (zip.length === 5) {
@@ -24,16 +28,16 @@ const StageEntry: React.FC<StageEntryProps> = ({ onComplete }) => {
         } else {
           setSelectedLocation(null);
         }
-        setError('');
+        setError("");
       } else {
         setPossibleLocations([]);
         setSelectedLocation(null);
-        setError('ไม่พบข้อมูลรหัสไปรษณีย์นี้ ลองตรวจสอบอีกครั้ง');
+        setError("ไม่พบข้อมูลรหัสไปรษณีย์นี้ ลองตรวจสอบอีกครั้ง");
       }
     } else {
       setPossibleLocations([]);
       setSelectedLocation(null);
-      setError('');
+      setError("");
     }
   }, [zip]);
 
@@ -44,11 +48,17 @@ const StageEntry: React.FC<StageEntryProps> = ({ onComplete }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center max-w-lg mx-auto px-4 animate-fade-in">
       <div className="mb-6 md:mb-8">
-        <div className="w-16 h-16 md:w-20 md:h-20 bg-deepIndigo rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg text-white transform transition hover:scale-105">
-          <MapPin className="w-8 h-8 md:w-9 md:h-9" />
-        </div>
-        <h2 className="text-2xl md:text-3xl font-bold text-deepIndigo mb-2">เสียงของคุณ... ส่งจากที่ไหน?</h2>
-        <p className="text-sm md:text-base text-slate-500">กรอกรหัสไปรษณีย์เพื่อเริ่มต้นสะท้อนปัญหาในพื้นที่</p>
+        <img
+          src="/logos/favicon.svg"
+          alt="เสียงในหัว คนบ้านฉัน"
+          className="w-20 h-20 md:w-28 md:h-28 mx-auto mb-4 drop-shadow-lg transform transition hover:scale-105"
+        />
+        <h2 className="text-2xl md:text-3xl font-bold text-deepIndigo mb-2">
+          เสียงของคุณ... ส่งจากที่ไหน?
+        </h2>
+        <p className="text-sm md:text-base text-slate-500">
+          กรอกรหัสไปรษณีย์เพื่อเริ่มต้นสะท้อนปัญหาในพื้นที่
+        </p>
       </div>
 
       <div className="w-full relative mb-6">
@@ -56,7 +66,7 @@ const StageEntry: React.FC<StageEntryProps> = ({ onComplete }) => {
           type="text"
           value={zip}
           onChange={(e) => {
-            const val = e.target.value.replace(/[^0-9]/g, '');
+            const val = e.target.value.replace(/[^0-9]/g, "");
             if (val.length <= 5) setZip(val);
           }}
           placeholder="รหัสไปรษณีย์ 5 หลัก"
@@ -78,20 +88,29 @@ const StageEntry: React.FC<StageEntryProps> = ({ onComplete }) => {
       {possibleLocations.length > 1 && (
         <div className="w-full mb-6 text-left animate-fade-in-up">
           <p className="text-sm font-bold text-slate-500 mb-2 ml-1">
-            พบ {possibleLocations.length} พื้นที่ในรหัส {zip} กรุณาระบุตำบลของคุณ:
+            พบ {possibleLocations.length} พื้นที่ในรหัส {zip}{" "}
+            กรุณาระบุตำบลของคุณ:
           </p>
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 max-h-60 overflow-y-auto divide-y divide-slate-100">
             {possibleLocations.map((loc, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSelectLocation(loc)}
-                className={`w-full text-left p-4 hover:bg-slate-50 transition-colors flex items-center justify-between ${selectedLocation === loc ? 'bg-orange-50' : ''}`}
+                className={`w-full text-left p-4 hover:bg-slate-50 transition-colors flex items-center justify-between ${
+                  selectedLocation === loc ? "bg-orange-50" : ""
+                }`}
               >
                 <div>
-                  <span className="font-bold text-deepIndigo block">{loc.subdistrict}</span>
-                  <span className="text-xs text-slate-400">อ.{loc.district} จ.{loc.province}</span>
+                  <span className="font-bold text-deepIndigo block">
+                    {loc.subdistrict}
+                  </span>
+                  <span className="text-xs text-slate-400">
+                    อ.{loc.district} จ.{loc.province}
+                  </span>
                 </div>
-                {selectedLocation === loc && <CheckCircle2 className="text-terracotta" size={20} />}
+                {selectedLocation === loc && (
+                  <CheckCircle2 className="text-terracotta" size={20} />
+                )}
               </button>
             ))}
           </div>
@@ -102,11 +121,16 @@ const StageEntry: React.FC<StageEntryProps> = ({ onComplete }) => {
       {possibleLocations.length === 1 && (
         <div className="w-full mb-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-100 animate-fade-in-up text-left flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-400 uppercase tracking-wide">พื้นที่ของคุณ</p>
+            <p className="text-xs text-slate-400 uppercase tracking-wide">
+              พื้นที่ของคุณ
+            </p>
             <div className="text-lg text-deepIndigo font-bold">
-              ต.{possibleLocations[0].subdistrict} อ.{possibleLocations[0].district}
+              ต.{possibleLocations[0].subdistrict} อ.
+              {possibleLocations[0].district}
             </div>
-            <div className="text-sm text-slate-500">จ.{possibleLocations[0].province}</div>
+            <div className="text-sm text-slate-500">
+              จ.{possibleLocations[0].province}
+            </div>
           </div>
           <div className="bg-green-100 text-green-600 p-2 rounded-full">
             <CheckCircle2 size={24} />
