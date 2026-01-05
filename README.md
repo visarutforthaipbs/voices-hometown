@@ -1,22 +1,22 @@
 # เสียงในหัว คนบ้านฉัน (Voices of My Hometown)
 
-**Voices of My Hometown** is a web application designed to collect and visualize public opinions on local policies during the election period. Developed for **Thai PBS**'s civic engagement network, it empowers citizens to voice their needs relative to their specific location.
+**เสียงในหัว คนบ้านฉัน** เป็นเว็บแอปพลิเคชันที่ออกแบบมาเพื่อรวบรวมและแสดงภาพความต้องการของประชาชนเกี่ยวกับนโยบายท้องถิ่น แอปพลิเคชันนี้พัฒนาขึ้นสำหรับเครือข่ายความเป็นพลเมืองของ **Thai PBS** เพื่อให้ประชาชนได้ "ส่งเสียง" สะท้อนปัญหาและความต้องการในพื้นที่ของตนเอง
 
 ![Project Banner](./public/logos/thaipbs.png)
 
-## 🌟 Key Features
+## 🌟 ฟีเจอร์หลัก (Key Features)
 
-### For Citizens (The Survey)
-1.  **Location-Based Entry**: Users enter their postal code to identify their subdistrict/district/province.
-2.  **Policy Selection**: Users choose the top 3 policies (out of 20 options) that matter most to them.
-3.  **Real-Time Feedback**: Submissions are instantly recorded in the central database.
-4.  **Personalized Result**: Users receive a personalized summary card of their choices.
+### สำหรับประชาชนทั่วไป (Survey)
+1.  **ระบุตัวตนด้วยพื้นที่ (Location-Based)**: ผู้ใช้ระบุรหัสไปรษณีย์เพื่อเข้าสู่ระบบตาม ตำบล/อำเภอ/จังหวัด ของตนเอง
+2.  **เลือกนโยบายที่ใช่ (Policy Selection)**: ผู้ใช้เลือก 3 นโยบายจาก 20 ตัวเลือกที่ตรงใจและตอบโจทย์ปัญหาในพื้นที่มากที่สุด
+3.  **สะท้อนเสียงแบบเรียลไทม์ (Real-Time Feedback)**: ข้อมูลการเลือกจะถูกส่งเข้าสู่ระบบฐานข้อมูลกลางทันที
+4.  **ผลลัพธ์ส่วนบุคคล (Personalized Result)**: ผู้ใช้จะได้รับสรุปผลการเลือกของตนเองในรูปแบบการ์ดที่สวยงาม
 
-### For Administrators (Internal Dashboard)
-*   Access via `/monitor`
-*   **Real-time Analytics**: View live voting results from across the country.
-*   **Regional Filtering**: Filter results by region (North, Northeast, Central, South, Bangkok).
-*   **Interactive Charts**: Visualize top policies using dynamic bar charts.
+### สำหรับผู้ดูแลระบบ (Internal Dashboard)
+*   เข้าถึงได้ผ่าน `/monitor`
+*   **ภาพรวมแบบเรียลไทม์**: ดูผลการโหวตสดๆ จากทั่วประเทศ
+*   **กรองข้อมูลรายภูมิภาค**: สามารถดูแยกเฉพาะ ภาคเหนือ, ภาคอีสาน, ภาคกลาง, ภาคใต้ หรือ กรุงเทพฯ และปริมณฑล
+*   **กราฟวิเคราะห์ผล**: แสดงผล 10 อันดับนโยบายยอดนิยมด้วยกราฟแท่งแบบ Interactive
 
 ### วิธีการคำนวณคะแนน (Scoring Logic)
 ระบบใช้วิธีการคำนวณแบบถ่วงน้ำหนัก (Weighted Scoring) เพื่อสะท้อนความต้องการที่แท้จริงของผู้ใช้ โดยให้คะแนนตามลำดับความสำคัญที่ผู้ใช้เลือก:
@@ -26,7 +26,7 @@
 
 คะแนนรวม (Total Score) ของแต่ละนโยบายจะถูกคำนวณจากผลรวมคะแนนทั้งหมด แล้วนำมาจัดอันดับเพื่อแสดงผลใน Dashboard วิธีนี้ช่วยให้นโยบายที่ถูกเลือกเป็นอันดับ 1 บ่อยครั้ง มีน้ำหนักมากกว่านโยบายที่ถูกเลือกเป็นลำดับท้ายๆ
 
-## 🛠 Tech Stack
+## 🛠 เทคโนโลยีที่ใช้ (Tech Stack)
 
 *   **Frontend**: React (Vite) + TypeScript
 *   **Styling**: Tailwind CSS + PostCSS
@@ -35,27 +35,27 @@
 *   **Database**: Firebase Cloud Firestore
 *   **Analytics**: Firebase Analytics
 
-## 🚀 Getting Started
+## 🚀 การเริ่มต้นใช้งาน (Getting Started)
 
-### Prerequisites
-*   Node.js (v18 or higher)
-*   npm or yarn
+### สิ่งที่ต้องมี (Prerequisites)
+*   Node.js (v18 หรือสูงกว่า)
+*   npm หรือ yarn
 
-### Installation
+### การติดตั้ง (Installation)
 
-1.  Clone the repository:
+1.  Clone โปรเจกต์:
     ```bash
     git clone https://github.com/visarutforthaipbs/voices-hometown.git
     cd voices-of-my-hometown
     ```
 
-2.  Install dependencies:
+2.  ติดตั้ง Dependencies:
     ```bash
     npm install
     ```
 
-3.  Set up Environment Variables:
-    Create a `.env.local` file in the root directory and add your Firebase configuration keys:
+3.  ตั้งค่า Environment Variables:
+    สร้างไฟล์ `.env.local` ในโฟลเดอร์ root และใส่ค่า Configuration ของ Firebase ดังนี้:
     ```env
     VITE_FIREBASE_API_KEY=your_api_key
     VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
@@ -66,24 +66,24 @@
     VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
     ```
 
-4.  Run the development server:
+4.  รันเซิร์ฟเวอร์สำหรับพัฒนา (Development Server):
     ```bash
     npm run dev
     ```
 
-## 📂 Project Structure
+## 📂 โครงสร้างโปรเจกต์ (Project Structure)
 
 ```
 src/
-├── components/        # React components (StageEntry, StageSelection, etc.)
-├── config/           # Firebase configuration
-├── data/             # Static data (Policies, Postcodes)
+├── components/        # React components (หน้าจอต่างๆ เช่น StageEntry, StageSelection)
+├── config/           # การตั้งค่า Firebase
+├── data/             # ข้อมูลดิบ (รายการนโยบาย, รหัสไปรษณีย์)
 ├── types/            # TypeScript interfaces
-└── App.tsx           # Main application router
+└── App.tsx           # ตัวจัดการระบบ Routing หลัก
 ```
 
-## © Credits
+## © เครดิต (Credits)
 
-Developed for **Thai PBS** (The Active & Network Partners).
-*   **Logos**: Locals, The Active, Thai PBS.
-*   **Fonts**: DB Helvethaica X.
+พัฒนาโดยความร่วมมือของ **Thai PBS**, **The Active** และภาคีเครือข่าย
+*   **Logos**: Locals, The Active, Thai PBS
+*   **Fonts**: DB Helvethaica X
