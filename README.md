@@ -84,6 +84,6 @@ src/
 
 ## © เครดิต (Credits)
 
-พัฒนาโดยความร่วมมือของ **Thai PBS**, **The Active** และภาคีเครือข่าย
-*   **Logos**: Locals, The Active, Thai PBS
+พัฒนาโดยความร่วมมือของ **Thai PBS**, **ทีมปัญญารวมหมู่ (Public Intelligence)** และภาคีเครือข่าย
+*   **Logos**: Locals, Thai PBS
 *   **Fonts**: DB Helvethaica X
