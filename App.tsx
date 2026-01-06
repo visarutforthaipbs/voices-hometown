@@ -120,9 +120,9 @@ const SurveyApp: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-6 transition-all duration-300">
             <img
-              src="/logos/partners-1.svg"
+              src="/logos/partners-3.svg"
               alt="Partner 1"
-              className="h-5 md:h-9 w-auto object-contain"
+              className="h-6 md:h-12 w-auto object-contain"
             />
             <div className="h-4 md:h-6 w-px bg-slate-600"></div>
             <img
@@ -132,7 +132,7 @@ const SurveyApp: React.FC = () => {
             />
             <div className="h-4 md:h-6 w-px bg-slate-600"></div>
             <img
-              src="/logos/partners-3.svg"
+              src="/logos/partners-1.svg"
               alt="Partner 3"
               className="h-6 md:h-10 w-auto object-contain"
             />
