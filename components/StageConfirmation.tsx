@@ -23,7 +23,8 @@ const StageConfirmation: React.FC<StageConfirmationProps> = ({ location, selecte
         province: location.province,
         district: location.district,
         subdistrict: location.subdistrict,
-        zipcode: location.zipcode
+        zipcode: location.zipcode,
+        region: location.region
       },
       selectedPolicies: selectedPolicies.map((p, index) => ({
         id: p.id,

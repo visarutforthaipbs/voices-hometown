@@ -29,6 +29,7 @@ export interface VoteData {
         district: string;
         subdistrict: string;
         zipcode: string;
+        region?: string;
     };
     selectedPolicies: {
         id: string;
