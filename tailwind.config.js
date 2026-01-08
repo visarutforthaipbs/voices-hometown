@@ -11,6 +11,8 @@ export default {
                 deepIndigo: '#1e293b',
                 terracotta: '#ea580c',
                 softCream: '#f8fafc',
+                'campaign-gold': '#D4AF37', // Metallic Gold
+                'campaign-black': '#0A0A0A', // Deep Rich Black
             },
             fontFamily: {
                 sans: ['DBHelvethaicaX', 'sans-serif'],

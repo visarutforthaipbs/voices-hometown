@@ -123,12 +123,7 @@ const StageDashboard: React.FC<StageDashboardProps> = ({ location, userSelection
                 </div>
             </div>
 
-            <div className="text-center">
-                <button className="inline-flex items-center justify-center space-x-2 bg-slate-200 hover:bg-slate-300 text-deepIndigo font-bold py-3 px-8 rounded-full transition-colors">
-                    <Share2 size={20} />
-                    <span>แชร์ให้เพื่อนมาโหวตบ้าง</span>
-                </button>
-            </div>
+
         </div>
     );
 };

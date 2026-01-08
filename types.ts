@@ -4,6 +4,7 @@ export interface Policy {
   description: string;
   focus: string;
   iconName: string;
+  examples?: string;
 }
 
 export interface LocationData {

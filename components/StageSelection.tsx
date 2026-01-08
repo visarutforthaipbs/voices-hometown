@@ -148,7 +148,7 @@ const StageSelection: React.FC<StageSelectionProps> = ({ onComplete }) => {
           <button
             onClick={handleSubmit}
             disabled={!isFull}
-            className="w-full sm:w-auto bg-deepIndigo hover:bg-slate-800 text-white font-bold py-3 px-8 rounded-xl flex items-center justify-center space-x-2"
+            className="w-full sm:w-auto bg-terracotta hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-xl flex items-center justify-center space-x-2 shadow-lg shadow-terracotta/20 transition-all active:scale-95"
           >
             <span>ไปขั้นตอนต่อไป</span>
             <ArrowRight size={20} />

@@ -27,9 +27,9 @@
 }
 
 @font-face {
-  font-family: "TorsilpNantarat";
-  src: url("/fonts/TorsilpNantarat%202.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "Kanit";
+  src: url("/fonts/Kanit-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -38,12 +38,13 @@
   body {
     @apply bg-softCream font-sans text-deepIndigo;
   }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: "TorsilpNantarat", "DBHelvethaicaX", sans-serif;
+    font-family: "Kanit", "DBHelvethaicaX", sans-serif;
   }
 }

@@ -139,18 +139,20 @@ const SurveyApp: React.FC = () => {
           </div>
           <p className="mb-2">
             กิจกรรมในช่วงการเลือกตั้งเพื่อรวบรวมความต้องการของประชาชน
-            โดยสำนักเครือข่ายและการมีส่วนร่วม สาธารณะไทยพีบีเอส (Thai PBS)
+            โดยสำนักเครือข่ายและการมีส่วนร่วมสาธารณะ ไทยพีบีเอส (Thai PBS)
           </p>
-          <p>&copy; {new Date().getFullYear()} เสียงในหัว คนบ้านฉัน</p>
         </div>
       </footer>
     </div>
   );
 };
 
+import CampaignBanner from "./components/CampaignBanner";
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+      <CampaignBanner />
       <Routes>
         <Route path="/" element={<SurveyApp />} />
         <Route path="/monitor" element={<InternalDashboard />} />

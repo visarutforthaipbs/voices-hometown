@@ -49,18 +49,19 @@ const PolicyCard: React.FC<PolicyCardProps> = ({ policy, selected, rank, onToggl
         {policy.title}
       </h3>
 
-      <p className="text-sm text-slate-500 mb-4 flex-grow leading-relaxed">
+      <p className="text-sm text-slate-500 mb-4 flex-grow leading-relaxed group-hover:hidden">
         {policy.description}
       </p>
 
-      <div className="pt-3 border-t border-slate-50 mt-auto">
-        <div className="flex items-center text-xs font-medium text-slate-400">
-          <span className="bg-slate-100 px-2 py-1 rounded text-slate-500 flex items-center gap-1">
-            <LucideIcons.MapPin size={12} className="text-terracotta" />
-            {policy.focus}
-          </span>
-        </div>
+      {/* Hover Content */}
+      <div className="hidden group-hover:block flex-grow mb-4 animate-fade-in">
+        <p className="text-xs font-bold text-terracotta mb-1">ตัวอย่างนโยบาย:</p>
+        <p className="text-sm text-slate-600 leading-relaxed">
+          {policy.examples}
+        </p>
       </div>
+
+
     </div>
   );
 };
