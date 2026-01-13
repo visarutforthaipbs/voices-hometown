@@ -61,17 +61,19 @@ const InternalDashboard: React.FC = () => {
         });
 
         // Convert back to array for chart
-        return POLICIES.map(p => ({
+        const sortedPolicies = POLICIES.map(p => ({
             name: p.title,
             shortName: p.title.substring(0, 15),
             votes: scores[p.id],
             id: p.id,
             category: p.iconName
         })).sort((a, b) => b.votes - a.votes);
+
+        return { sortedPolicies, respondentCount: count };
     }, [votes, selectedRegion]);
 
-    const topPolicies = data.slice(0, 10);
-    const totalVotes = data.reduce((acc, curr) => acc + curr.votes, 0);
+    const topPolicies = data.sortedPolicies.slice(0, 10);
+    const totalVotes = data.sortedPolicies.reduce((acc, curr) => acc + curr.votes, 0);
 
     return (
         <div className="min-h-screen bg-slate-50 font-sans text-deepIndigo flex flex-col">
@@ -111,6 +113,11 @@ const InternalDashboard: React.FC = () => {
                         <div className="mt-6 pt-6 border-t border-slate-100">
                             <p className="text-xs text-slate-400 mb-1">ยอดโหวตรวม ({REGIONS.find(r => r.id === selectedRegion)?.name})</p>
                             <p className="text-3xl font-bold text-terracotta">{totalVotes.toLocaleString()}</p>
+
+                            <div className="mt-4 pt-4 border-t border-slate-100/50">
+                                <p className="text-xs text-slate-400 mb-1">จำนวนผู้ตอบแบบสำรวจ</p>
+                                <p className="text-xl font-bold text-deepIndigo">{data.respondentCount.toLocaleString()} <span className="text-sm font-normal text-slate-400">คน</span></p>
+                            </div>
                         </div>
                     </div>
 
@@ -165,7 +172,7 @@ const InternalDashboard: React.FC = () => {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-100 text-sm">
-                                {data.map((item, idx) => (
+                                {data.sortedPolicies.map((item, idx) => (
                                     <tr key={item.id} className="hover:bg-slate-50 transition-colors">
                                         <td className="p-4 w-16 text-center font-bold text-slate-400">#{idx + 1}</td>
                                         <td className="p-4 font-medium text-deepIndigo w-2/3">{item.name}</td>

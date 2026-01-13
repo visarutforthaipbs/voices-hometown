@@ -61,7 +61,7 @@ export const subscribeToVotes = (callback: (votes: VoteData[]) => void) => {
     // to maintain a separate 'counters' collection.
     // For this MVP/Demo, fetching recent 1000 votes is acceptable.
 
-    const q = query(collection(db, VOTES_COLLECTION), orderBy("timestamp", "desc"), limit(1000));
+    const q = query(collection(db, VOTES_COLLECTION), orderBy("timestamp", "desc"));
 
     return onSnapshot(q, (querySnapshot) => {
         const votes: VoteData[] = [];
