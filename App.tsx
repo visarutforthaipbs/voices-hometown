@@ -148,6 +148,7 @@ const SurveyApp: React.FC = () => {
 };
 
 import CampaignBanner from "./components/CampaignBanner";
+import AnalyticsDashboard from "./components/AnalyticsDashboard";
 
 const App: React.FC = () => {
   return (
@@ -156,6 +157,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<SurveyApp />} />
         <Route path="/monitor" element={<InternalDashboard />} />
+        <Route path="/analytics" element={<AnalyticsDashboard />} />
       </Routes>
     </BrowserRouter>
   );
