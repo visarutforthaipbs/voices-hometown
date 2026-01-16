@@ -42,10 +42,10 @@ const InternalDashboard: React.FC = () => {
                 // Simple mapping or check
                 let match = false;
                 if (selectedRegion === 'bangkok' && region.includes('กรุงเทพ')) match = true;
-                else if (selectedRegion === 'north' && region.includes('เหนือ')) match = true;
+                else if (selectedRegion === 'north' && region.includes('เหนือ') && !region.includes('ตะวันออกเฉียงเหนือ')) match = true;
                 else if (selectedRegion === 'northeast' && (region.includes('ตะวันออกเฉียงเหนือ') || region.includes('อีสาน'))) match = true;
                 else if (selectedRegion === 'south' && region.includes('ใต้')) match = true;
-                else if (selectedRegion === 'central' && region.includes('กลาง')) match = true;
+                else if (selectedRegion === 'central' && (region.includes('กลาง') || region.includes('ตะวันตก') || (region.includes('ตะวันออก') && !region.includes('เฉียงเหนือ')))) match = true;
 
                 if (!match) return; // Skip this vote
             }
