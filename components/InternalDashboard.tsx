@@ -51,10 +51,11 @@ const InternalDashboard: React.FC = () => {
             }
 
             count++;
-            // Weighted scoring: Rank 1 = 3pts, Rank 2 = 2pts, Rank 3 = 1pt
+            // Unweighted Scoring: Rank 1=1, Rank 2=1, Rank 3=1
+            // Total per person = 3.0 (Matches x3 multiplier requirement)
             vote.selectedPolicies.forEach((p: any) => {
                 if (scores[p.id] !== undefined) {
-                    const points = 4 - p.rank;
+                    const points = 1;
                     scores[p.id] += points;
                 }
             });
